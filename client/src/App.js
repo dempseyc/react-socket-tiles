@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { subscribeToTimer } from './api';
-import Title from './comp/Title';
-import Hand from './comp/Hand';
-import Board from './comp/Board';
+// also here
+import { subscribeToTimer } from './api.js';
+// import { playerAction } from './player-action.js';
+import Title from './comp/Title.js';
+import Hand from './comp/Hand.js';
+import Board from './comp/Board.js';
 
 class App extends Component {
   constructor(props) {

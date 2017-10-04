@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// whats the difference between require and import again?
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -13,6 +14,10 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 io.on('connection', (client) => {
+  //
+  // seems like some of my logic would be here, but maybe broken out into other files
+  //
+  //
   client.on('subscribeToTimer', (interval) => {
     console.log('client is subscribing to timer with interval ', interval);
     setInterval(() => {

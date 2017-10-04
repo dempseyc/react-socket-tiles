@@ -4,6 +4,7 @@ class Cell extends Component {
 
   constructor(props) {
     super(props);
+    this.location = props.id;
   }
 
   handleClick() {
@@ -14,7 +15,7 @@ class Cell extends Component {
     let className = "cell";
 
     return (
-      <div key={this.props.key} id={this.props.id} className={className} onClick={this.handleClick.bind(this)}>
+      <div id={this.props.id} className={className} onClick={this.handleClick.bind(this)}>
       </div>
     );
   }
