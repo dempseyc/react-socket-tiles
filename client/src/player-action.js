@@ -1,10 +1,9 @@
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
-
-// and here
-function subscribeToTimer (cb) {
-  socket.on('timer', timestamp => cb(null, timestamp));
-  socket.emit('subscribeToTimer', 1000);
+function chooseTile (hand) {
+  console.log("tile chosen");
 }
 
-export { subscribeToTimer }
+function putDownTile (location) {
+  console.log("tile placed");
+}
+
+export {chooseTile,putDownTile}

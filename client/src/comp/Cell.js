@@ -7,6 +7,13 @@ class Cell extends Component {
     this.location = props.id;
   }
 
+  state = {
+    occupied: false,
+    hoveredbyplayer: false,
+    connections: ["","","",""],
+    hasbase: false
+  }
+
   handleClick() {
 
   }
