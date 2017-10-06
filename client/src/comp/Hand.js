@@ -9,28 +9,33 @@ class Hand extends Component {
 
     this.array = [];
 
+    //  array only fills in ids
     for (let c = 0; c < this.props.num; c++) {
       this.array.push(`h-${c}`);
     }
 
     this.state = {
       player: this.props.player,
-      held: this.props.held
+      held: this.props.held,
+      tiles: []
     }
 
-    this.tiles = this.array.map((tile,i) => {
-      return <HandCell key={i} id={this.array[i]} className="hand-cell">{this.state.held[i]}></HandCell>
+    this.heldTiles = this.state.held.map((tile,i) => {
+      let prof = tile;
+      return <HandCell key={i} id={tile} profile={prof} />
     })
   }
 
 
   render() {
     return (
-      <div className="hand grid">
-        {this.tiles}
+      <div className="hand-grid">
+        {this.heldTiles}
       </div>
-    );
+    )
   }
 }
+
+
 
 export default Hand;

@@ -3,7 +3,7 @@ function drawHand (deck,handsize) {
   for (let i=0;i<handsize;i++) {
     hand.push(deck.pop());
   }
-  console.log(hand);
+  // console.log(hand);
   return hand;
   // console.log('handdrawn');
 }

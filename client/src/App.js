@@ -37,7 +37,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({player2hand: drawHand(this.state.player2deck,4)});
     this.setState({player1hand: drawHand(this.state.player1deck,4)});
   }
@@ -46,8 +46,10 @@ class App extends Component {
     let hand = [];
     if (this.state.player===1) {
       hand = this.state.player1hand;
+      console.log(hand + " hand");
     } else {
       hand = this.state.player2hand;
+      console.log(hand + " hand");
     }
     return (
       <div className="App">
