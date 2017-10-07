@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 body {
@@ -13,8 +13,6 @@ body {
   font-size: 3em;
   line-height: 1em;
 }
-
-
 
 .hand-grid {
   height: 30px;
@@ -39,6 +37,17 @@ body {
   border: 2px solid white;
   margin: -2px -2px -2px -2px;
   float: left;
+}
+
+.base-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.base {
+  display: inline-block;
+  position: absolute;
 }
 
 .hand-cell {

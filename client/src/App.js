@@ -14,9 +14,9 @@ class App extends Component {
 
     this.state = {
       whosturn: 1,
-      board: buildBoard(15),
-      player1: buildPlayer(),
-      player2: buildPlayer(),
+      board: {},
+      player1: {},
+      player2: {},
     }
 
     console.log(this.state);
@@ -30,11 +30,11 @@ class App extends Component {
     }
   }
 
-  // componentWillMount () {
-  //   this.setState({board: });
-  //   this.setState({player1: });
-  //   this.setState({player2: buildPlayer()});
-  // }
+  componentWillMount () {
+    this.setState({board: buildBoard(15)});
+    this.setState({player1: buildPlayer()});
+    this.setState({player2: buildPlayer()});
+  }
 
   render() {
     return (

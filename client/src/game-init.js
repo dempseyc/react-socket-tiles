@@ -49,9 +49,16 @@ function randMax(max) {
 
 function gridBoarders (bSize) {
   let boarderArray = [];
-  for (let i = 0; i < bSize+1; i++) {
+  // horizontal boarders
+  for (let i = 0; i < bSize-1; i++) {
     for (let j = 0; j < bSize+1; j++) {
-      boarderArray.push(`${i}-${j}`);
+      boarderArray.push(`${i+0.5}-${j}`);
+    }
+  }
+  // vertical boarders
+  for (let i = 0; i < bSize+1; i++) {
+    for (let j = 0; j < bSize-1; j++) {
+      boarderArray.push(`${i}-${j+0.5}`);
     }
   }
   return boarderArray;
@@ -61,7 +68,7 @@ function placeBases (num, bSize) {
   let possibleLocations = gridBoarders(bSize);
   let bases = [];
   for (let i = 0; i < num; i++) {
-    let ran = randMax(possibleLocations.length);
+    let ran = randMax(possibleLocations.length-1);
     let base = possibleLocations.splice(ran, 1)[0];
     bases.push(base);
   }

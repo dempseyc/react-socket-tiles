@@ -28,10 +28,12 @@ class Board extends Component {
             </BoardCell>
             )
         ))}
+        <div className="base-container">
         {this.bases.map((base) =>
           <Base location={base}>
             </Base>
         )}
+        </div>
       </div>
     );
   }

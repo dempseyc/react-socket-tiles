@@ -6,7 +6,13 @@ class Base extends Component {
     super(props);
 
     this.location = this.props.location;
-
+    this.style= {
+      width : "10px",
+      height: "10px",
+      background: "#008",
+      top: 30*this.location.split('-')[0]-5,
+      left: 30*this.location.split('-')[1]-5
+      }
     this.state = {
       owned: false,
       ownedBy: {},
@@ -18,7 +24,7 @@ class Base extends Component {
     let className = "cell";
 
     return (
-        <div className="base">{this.location}</div>
+        <div className="base" style={this.style}>{this.location}</div>
     );
   }
 }
