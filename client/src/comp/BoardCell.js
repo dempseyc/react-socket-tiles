@@ -9,9 +9,9 @@ class Cell extends Component {
 
   state = {
     occupied: false,
+    occupiedby: {},
     hoveredbyplayer: false,
-    connections: ["","","",""],
-    hasbase: false
+    bases: ["","","",""]
   }
 
   handleClick() {

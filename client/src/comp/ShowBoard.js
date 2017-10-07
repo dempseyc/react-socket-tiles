@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Cell from './Cell.js';
+import BoardCell from './BoardCell.js';
+import Base from './Base.js';
 
 
 class Board extends Component {
@@ -14,14 +15,23 @@ class Board extends Component {
       }
       this.matrix.push(row);
     }
+    this.bases = this.props.bases;
   }
+
+  // other mentions of lifecycle functions
+
   render() {
     return (
-      <div className="board grid">
+      <div className="board-grid">
         {this.matrix.map((row, ri) => (
-          row.map(cellId => <Cell key={cellId} id={cellId} />
+          row.map(cellId => <BoardCell key={cellId} id={cellId}>
+            </BoardCell>
             )
         ))}
+        {this.bases.map((base) =>
+          <Base location={base}>
+            </Base>
+        )}
       </div>
     );
   }

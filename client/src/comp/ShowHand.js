@@ -3,7 +3,7 @@ import HandCell from './HandCell.js';
 
 
 // hand is interesting, should change its id and key with the player num, so maybe -0 -1 -2
-class Hand extends Component {
+class ShowHand extends Component {
   constructor(props) {
     super(props);
 
@@ -38,4 +38,4 @@ class Hand extends Component {
 
 
 
-export default Hand;
+export default ShowHand;

@@ -1,65 +1,52 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+
 import './App.css';
-// also here
-// import { subscribeToTimer } from './api.js';
-import { drawHand } from './manage-hand.js';
-// import { playerAction } from './player-action.js';
-import { buildDeck } from './game-meta.js';
+
+import { buildBoard } from './game-init.js';
+import { buildPlayer } from './game-init.js';
 import Title from './comp/Title.js';
-import Hand from './comp/Hand.js';
-import Board from './comp/Board.js';
+import ShowHand from './comp/ShowHand.js';
+import ShowBoard from './comp/ShowBoard.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    // subscribeToTimer((err, timestamp) => this.setState({
-    //   timestamp
-    // }));
-    this.state = {
-      player1deck: buildDeck(),
-      player2deck: buildDeck(),
-      player1hand: [],
-      player2hand: [],
-      boardTiles: [],
-      player: 1
-    }
 
+    this.state = {
+      whosturn: 1,
+      board: buildBoard(15),
+      player1: buildPlayer(),
+      player2: buildPlayer(),
+    }
 
     console.log(this.state);
   }
 
   switchPlayers () {
     if (this.state.player===1) {
-      this.setState({player: 2});
+      this.setState({whosturn: 2});
     } else {
-      this.setState({player: 1});
+      this.setState({whosturn: 1});
     }
   }
 
-  componentWillMount() {
-    this.setState({player2hand: drawHand(this.state.player2deck,4)});
-    this.setState({player1hand: drawHand(this.state.player1deck,4)});
-  }
+  // componentWillMount () {
+  //   this.setState({board: });
+  //   this.setState({player1: });
+  //   this.setState({player2: buildPlayer()});
+  // }
 
   render() {
-    let hand = [];
-    if (this.state.player===1) {
-      hand = this.state.player1hand;
-      console.log(hand + " hand");
-    } else {
-      hand = this.state.player2hand;
-      console.log(hand + " hand");
-    }
     return (
       <div className="App">
 
         <Title />
-        <Hand
-          num={4} player={this.state.player} held={hand}
+
+        <ShowHand
+          num={4} player={this.state.whosturn} held ={this.state.player1.hand}
         />
-        <Board
-          rows={15} columns={15} money={5}
+        <ShowBoard
+          rows={15} columns={15} bases={this.state.board.bases}
         />
       </div>
     );

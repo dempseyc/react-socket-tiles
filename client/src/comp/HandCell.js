@@ -7,8 +7,8 @@ class HandCell extends Component {
 
     this.state = {
       id: props.id,
-      profile: props.profile,
-      value: props.value
+      player: props.player,
+      profile: props.profile
     }
   }
 
