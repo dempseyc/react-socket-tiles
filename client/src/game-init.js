@@ -1,12 +1,12 @@
 
-let tiles = ["straight", "cross", "opposite corners", "one corner", "two corners same side",
-"hook left", "hook right"];
+let tiles = ["straight", "cross", "opposite-corners", "one-corner", "two-corners-same-side",
+"left-hook", "right-hook"];
 
 let codes = ["1010","1212","1122","1100","0111","1011","1110"];
 
 
 let profiles = tiles.map((tile,i) => {
-  return {[tiles[i]]: codes[i]};
+  return {type: i,code:codes[i],name:tiles[i]};
 });
 
 let ranNum = function () {

@@ -21,10 +21,10 @@ class Base extends Component {
   }
 
   render() {
-    let className = "cell";
+    let className = "base";
 
     return (
-        <div className="base" style={this.style}>{this.location}</div>
+        <div className={className} style={this.style}>{this.location}</div>
     );
   }
 }

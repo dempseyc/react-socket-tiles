@@ -14,13 +14,10 @@ body {
   line-height: 1em;
 }
 
-.hand-grid {
+.player-switch {
+  background-color: red;
   height: 30px;
-  width: 120px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  border: 2px solid blue;
-  background-color: #DDD;
+  width: 30px;
 }
 
 .board-grid {
@@ -46,19 +43,125 @@ body {
 }
 
 .base {
+  font-size: 0.3em;
+  color: #F80;
   display: inline-block;
   position: absolute;
+}
+
+.hand-grid {
+  height: 50px;
+  width: 220px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 2px solid blue;
+  background-color: #DDD;
 }
 
 .hand-cell {
   height: 30px;
   width: 30px;
   border: 2px solid white;
-  margin: -2px -2px -2px -2px;
+  margin: 10px 10px 10px 10px;
   float: left;
+}
+
+.hand-cell.p2 {
+  border: 2px solid orange;
+}
+
+.hand-cell.p1 {
+  border: 2px solid green;
 }
 
 .hand-tile {
   font-size: .5em;
+}
+
+/*image classNames*/
+
+.p1cross {
+  background-image: url('./images/p1cross.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1left-hook {
+  background-image: url('./images/p1left-hook.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1one-corner {
+  background-image: url('./images/p1one-corner.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1opposite-corners {
+  background-image: url('./images/p1opposite-corners.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1right-hook {
+  background-image: url('./images/p1right-hook.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1straight {
+  background-image: url('./images/p1straight.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p1two-corners-same-side {
+  background-image: url('./images/p1two-corners-same-side.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2cross {
+  background-image: url('./images/p2cross.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2left-hook {
+  background-image: url('./images/p2left-hook.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2one-corner {
+  background-image: url('./images/p2one-corner.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2opposite-corners {
+  background-image: url('./images/p2opposite-corners.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2right-hook {
+  background-image: url('./images/p2right-hook.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2straight {
+  background-image: url('./images/p2straight.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+}
+.p2two-corners-same-side {
+  background-image: url('./images/p2two-corners-same-side.gif');
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
 }
 

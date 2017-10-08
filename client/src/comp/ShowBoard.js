@@ -3,7 +3,7 @@ import BoardCell from './BoardCell.js';
 import Base from './Base.js';
 
 
-class Board extends Component {
+class ShowBoard extends Component {
   constructor(props) {
     super(props);
 
@@ -29,8 +29,8 @@ class Board extends Component {
             )
         ))}
         <div className="base-container">
-        {this.bases.map((base) =>
-          <Base location={base}>
+        {this.bases.map((base, i) =>
+          <Base key={i} location={base}>
             </Base>
         )}
         </div>
@@ -39,4 +39,4 @@ class Board extends Component {
   }
 }
 
-export default Board;
+export default ShowBoard;

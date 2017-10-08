@@ -19,11 +19,13 @@ class App extends Component {
       player2: {},
     }
 
-    console.log(this.state);
+    this.switchPlayers=this.switchPlayers.bind(this);
+
   }
 
   switchPlayers () {
-    if (this.state.player===1) {
+    // console.log(this.state.whosturn);
+    if (this.state.whosturn===1) {
       this.setState({whosturn: 2});
     } else {
       this.setState({whosturn: 1});
@@ -37,13 +39,23 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.state.player1.hand);
+    // console.log(this.state.player2.hand);
+    let held;
+    if (this.state.whosturn===1) {
+      held = this.state.player1.hand;
+    } else {
+      held = this.state.player2.hand;
+    }
+
     return (
       <div className="App">
 
         <Title />
-
+        <div className="player-switch" onClick={this.switchPlayers}>
+        </div>
         <ShowHand
-          num={4} player={this.state.whosturn} held ={this.state.player1.hand}
+          num={4} player={this.state.whosturn} held={held}
         />
         <ShowBoard
           rows={15} columns={15} bases={this.state.board.bases}

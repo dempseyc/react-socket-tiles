@@ -14,18 +14,24 @@ class ShowHand extends Component {
       this.array.push(`h-${c}`);
     }
 
-    this.state = {
-      player: this.props.player,
-      held: this.props.held,
-      tiles: []
+    this.getTiles = function () {
+      let held = this.props.held.map((tile,i) => {
+        let prof = tile;
+        return <HandCell key={i} player={this.props.player} profile={prof} />
+      })
+      return held;
     }
 
-    this.heldTiles = this.state.held.map((tile,i) => {
-      let prof = tile;
-      return <HandCell key={i} id={tile} profile={prof} />
-    })
+    this.heldTiles = this.getTiles();
+
+    // this.getTiles = this.getTiles.bind(this);
+
   }
 
+  componentWillReceiveProps() {
+    this.heldTiles = this.getTiles();
+    console.log(this.props.held);
+  }
 
   render() {
     return (
@@ -39,3 +45,4 @@ class ShowHand extends Component {
 
 
 export default ShowHand;
+
