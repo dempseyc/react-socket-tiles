@@ -20,6 +20,12 @@ body {
   width: 30px;
 }
 
+.rotate-button {
+  background-color: white;
+  height: 30px;
+  width: 30px;
+}
+
 .board-grid {
   height: 450px;
   width: 450px;
@@ -51,7 +57,7 @@ body {
 
 .hand-grid {
   height: 50px;
-  width: 220px;
+  width: 250px;
   margin: 0 auto;
   margin-bottom: 10px;
   border: 2px solid blue;

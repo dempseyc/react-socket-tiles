@@ -37,6 +37,7 @@ function buildPlayer() {
   let player = {};
   player.deck = buildDeck();
   player.hand = drawHand(player.deck,4);
+  player.tilerotation = 0;
   player.bases = [];
   return player;
 }
