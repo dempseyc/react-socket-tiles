@@ -51,11 +51,11 @@ class App extends Component {
       return last + first;
     }
 
-    let tilesRotated = tiles.map(tile => {
-      let tilecode = tile.code;
-      tile.code = rotateString(tilecode);
+    tiles.forEach(tile => {
+      let tilecode = tile.rotcode;
+      tile.rotcode = rotateString(tilecode);
     })
-    player.hand = tilesRotated;
+
 
     let newRotate = rotation+90;
     if (newRotate===360) {newRotate = 0};

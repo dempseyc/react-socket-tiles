@@ -6,7 +6,7 @@ let codes = ["1010","1212","1122","1100","0111","1011","1110"];
 
 
 let profiles = tiles.map((tile,i) => {
-  return {type: i,code:codes[i],name:tiles[i]};
+  return {type: i,code:codes[i], rotcode:codes[i], name:tiles[i]};
 });
 
 let ranNum = function () {
