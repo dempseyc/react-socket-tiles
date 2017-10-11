@@ -16,8 +16,8 @@ class App extends Component {
       whosturn: "1",
       playerup: {},
       board: buildBoard(15),
-      player1: buildPlayer(),
-      player2: buildPlayer(),
+      player1: buildPlayer(1),
+      player2: buildPlayer(2),
     }
 
     this.switchPlayers = this.switchPlayers.bind(this);
@@ -46,7 +46,7 @@ class App extends Component {
 
     function rotateString(str) {
       let len = str.length;
-      let last = str.substring(len-1,len);
+      let last = str.substring(len-1);
       let first = str.substring(0,len-1);
       return last + first;
     }
@@ -61,9 +61,6 @@ class App extends Component {
     if (newRotate===360) {newRotate = 0};
     player.tilerotation = newRotate;
     this.setState({playerup: player});
-
-
-
   }
 
   componentWillMount () {

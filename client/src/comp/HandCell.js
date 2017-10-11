@@ -8,6 +8,9 @@ class HandCell extends Component {
     this.className = `hand-cell p${this.props.player}`;
 
     this.imageClassName = `p${this.props.player}${this.props.profile.name}`;
+
+    this.style = this.props.style;
+
   }
 
   // componentWillMount() {
@@ -17,6 +20,7 @@ class HandCell extends Component {
   componentWillReceiveProps(newProps){
     this.className = `hand-cell p${newProps.player}`;
     this.imageClassName = `p${newProps.player}${newProps.profile.name}`;
+    this.style = newProps.style;
   }
 
   handleClick() {
@@ -26,7 +30,7 @@ class HandCell extends Component {
   render() {
     // console.log("handcell renders", this.imageClassName);
     return (
-      <div className={this.className} onClick={this.handleClick.bind(this)}>
+      <div className={this.className} onClick={this.handleClick.bind(this)} style={this.style}>
         <div className={this.imageClassName}></div>
       </div>
     );

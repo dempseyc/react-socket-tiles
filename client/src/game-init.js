@@ -5,15 +5,32 @@ let tiles = ["straight", "cross", "opposite-corners", "one-corner", "two-corners
 let codes = ["1010","1212","1122","1100","0111","1011","1110"];
 
 
-let profiles = tiles.map((tile,i) => {
-  return {type: i,code:codes[i], rotcode:codes[i], name:tiles[i]};
-});
+function buildProfiles (p) {
+  let codelist = codes;
+  let p2codes = codelist.map(str => {
+    let arr=str.split("");
+    let arr2=arr.map(n => {
+
+      if (n==="1") { return "2";}
+      else if (n==="2") { return "1";}
+      else {return "0";}
+
+    })
+    return arr2.join("");
+  })
+  if (p===2) {codelist = p2codes;}
+  let profs = tiles.map((tile,i) => {
+    return {type: i,code:codelist[i], rotcode:codelist[i], name:tiles[i]};
+  });
+  return profs;
+}
 
 let ranNum = function () {
   return Math.floor(Math.random()*tiles.length);
 }
 
-function buildDeck() {
+function buildDeck(p) {
+  let profiles = buildProfiles(p);
   let decksize = 20; //135
   let deck = [];
   for (let i=0;i<decksize;i++) {
@@ -33,9 +50,9 @@ function drawHand (deck,handsize) {
   // console.log('handdrawn');
 }
 
-function buildPlayer() {
+function buildPlayer(p) {
   let player = {};
-  player.deck = buildDeck();
+  player.deck = buildDeck(p);
   player.hand = drawHand(player.deck,4);
   player.tilerotation = 0;
   player.bases = [];

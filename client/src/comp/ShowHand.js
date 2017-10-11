@@ -14,37 +14,46 @@ class ShowHand extends Component {
       this.array.push(`h-${c}`);
     }
 
+    this.state = {
+      rotation: this.props.tilerotation,
+      style: {
+        transform: `rotate(${this.props.tilerotation}deg)`,
+        transition: "transform 0.5s"
+      }
+    }
+
     this.getTiles = this.getTiles.bind(this);
 
-    this.heldTiles = this.getTiles(this.props);
-
-    this.state = {
-      rotation: this.props.tilerotation
-    }
   }
 
-  getTiles (props) {
+  getTiles (props,state) {
+    let style = this.state.style;
     let held = props.held.map((tile,i) => {
       let prof = tile;
-      return <HandCell key={i} player={props.player} profile={prof} />
+      return <HandCell key={i} player={props.player} profile={prof} style={style} />
     })
     return held;
   }
 
-
   componentWillReceiveProps(newProps) {
-    this.heldTiles = this.getTiles(newProps);
-    this.setState({rotation: newProps.tilerotation});
-    // console.log(newProps.held);
+    this.setState({
+      rotation: newProps.tilerotation,
+      style: {
+        transform: `rotate(${newProps.tilerotation}deg)`,
+        transition: "transform 0.5s"
+      }
+    });
+
+    console.log(newProps.held);
   }
 
   render() {
-    // console.log("showhand rendered")
+    // console.log(this.state.heldTiles);
     return (
       <div className="hand-grid">
         <button className="rotate-button" onClick={this.props.rotate}>{this.state.rotation}º
         </button>
-        {this.heldTiles}
+        {this.getTiles(this.props)}
       </div>
     )
   }
